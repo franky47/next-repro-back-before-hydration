@@ -15,6 +15,8 @@ The Playwright test navigates client-side from `/` to `/post`, reloads with all 
 
 Manually: `pnpm build && pnpm start`, open the app, click **To post**, hard-reload (Cmd+Shift+R), press Back quickly before hydration finishes. The URL bar shows `/` and the page goes blank.
 
+To widen the pre-hydration window on fast machines, enable network throttling in the browser devtools (e.g. Slow 4G): the HTML streams in quickly but the static chunks take a while to load, delaying hydration — press Back at leisure within that window.
+
 ## Expected
 
 Once the router replays the missed traversal, the Home page renders (as it does without `cacheComponents`), and the reloaded page's content stays visible until then.
